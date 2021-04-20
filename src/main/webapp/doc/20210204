@@ -1,0 +1,49 @@
+- 마샬링
+  객체의 표현 방식을 다른 형식으로 변경
+  
+viewName : "ajax/ajaxView"
+
+1. tilesViewResolver
+	==> viewName과 동일한 이름의 tiles definition이 있는지 검사
+		있으면 사용 없으면?
+2. beanNameViewResolver
+	==> viewName과 동일한 이름의 스프링 빈을 찾고, 검색이 되면 해당 스프링 빈을 view객체로 사용
+		있으면 view객체로 사용
+		없으면?
+3. internalResourceViewResolver
+	==> view name에 해당하는 리소스의 존재 유무와 관계없이 forward
+	
+중간프로젝트 => 스프링으로 바꾸기
+1. login, main 화면 공통
+2. 본인이 만든 메뉴 아무거나 하나
+	메뉴가 메인화면 링크를 통해 접속 할 수 있게끔
+	(만약 본인이 만든 기능이 메인 메뉴에 없을 경우 강제로 추가)
+
+
+
+
+
+localhost/hello/hello ==> 화면에 hello 문자만 보이면 됨
+
+1. spring framework를 이용하여
+2. 신규프로젝트로
+3. 단 pom.xml을 수업시간에 사용한 파일을 통해 복사
+4. spring bean configuration 파일은 신규로 만들기
+============================================
+1. 프로젝트 생성 - maven, groupid, artifactid
+2. pom.xml 복사
+3. web.xml 생성
+4. spring config
+	.controller scan 설정 (Model은 필요 없는 상황)
+	.viewResolver(jsp, json ==> 두개중 하나만 설정하면 됨)
+5. web.xml에 스프링 컨테이너 관련 설정
+	.Model ==> x
+	 Controller ==> (0) ==> dispatcherServlet ==> 설정파일 1개만 추가(4번에서 만든 설정파일)
+	 
+스프링 설정	 
+=================================================================================	 
+6. 설정된 사항을 이용하여 개발(business logic)
+7. hello/hello url을 처리하는 Controller ==< @Controller, @RequestMapping
+   .method도 같이 생성
+   
+8. jsp/jsonView(Model)
